@@ -179,6 +179,8 @@ $(function () {
 		  });
 
 		  var listlen = $('.zh_yc_list').length;
+
+
 		  
 
 			$('#container').on('click', '.addBtn', function (e) {
@@ -191,44 +193,119 @@ $(function () {
 					       $('.addBtn').hide();
 					    }
 			});	
+
+
+            function unameTest(){
+
+                    var reg =/^([\u4e00-\u9fa5]{2,4}|[a-zA-Z]{2,8})$/;
+                    var v = $(".uname").val();
+
+
+                    if( v == ''){
+                        $('#uEmpty').show();
+                        setTimeout(function () {
+                            $('#uEmpty').hide();
+                        }, 2000);
+                    }
+                    else{
+                        if(!reg.test(v)){
+                            $('#uType').show();
+                            setTimeout(function () {
+                                $('#uType').hide();
+                            }, 2000);
+                        }
+                    }                
+            };
+
+            function unumTest(){
+                    var pNum =/(1[3-9]\d{9}$)/;
+                    var uPNum = $(".uphone").val();
+
+                    if(uPNum == ''){
+                        $('#tEmpty').show();
+                        setTimeout(function () {
+                            $('#tEmpty').hide();
+                        }, 2000);
+                    }else{
+                        if(!pNum.test(uPNum)){
+                            $('#tType').show();
+                            setTimeout(function () {
+                                $('#tType').hide();
+                            }, 2000);
+                        }
+                    };                  
+            };
+
+            function uaddrsTest(){
+                    var cAddress =$('.cAddress a').length;
+                    if(cAddress < 1){
+                        $('#cAddress').show();
+                        setTimeout(function () {
+                            $('#cAddress').hide();
+                        }, 2000);                        
+                    };
+            };
+
+            function zyNameTest(){
+                     var zyName =$('.zyName').val();
+                    if(zyName == ''){
+                        $('#zyName').show();
+                        setTimeout(function () {
+                            $('#zyName').hide();
+                        }, 2000);                        
+                    };                 
+            }
+
+            function zyImg(){
+                     var zyName =$('.zyImg li').length;
+                    if(zyName < 1){
+                        $('#zyImg').show();
+                        setTimeout(function () {
+                            $('#zyImg').hide();
+                        }, 2000);                        
+                    };                 
+            }
+
+            function uAge(){
+                     var zyName =$('.uAge').val();
+                    if(zyName == ''){
+                        $('#uAge').show();
+                        setTimeout(function () {
+                            $('#uAge').hide();
+                        }, 2000);                        
+                    };                 
+            }
+
+            function cGender(){
+                     var cGender =$('.cGender').val();
+                    if(cGender == 0){
+                        $('#cGender').show();
+                        setTimeout(function () {
+                            $('#cGender').hide();
+                        }, 2000);                        
+                    };                 
+            }
+
+            $('#container').on('click', '#zzlfSubmitBtn', function (e) {
+                uaddrsTest();
+                unameTest();
+                cGender();
+                uAge();
+                zyNameTest();
+            }); 
+
+            $('#container').on('click', '#photoSubmitBtn', function (e) {
+                uaddrsTest();
+                unameTest();
+                cGender();
+                uAge();
+                zyImg();
+            });
 	      
 
 		  	$('#container').on('click', '#submitBtn', function () {
-		  			var reg =/^([\u4e00-\u9fa5]{2,4}|[a-zA-Z]{2,8})$/;
-					var v = $(".uname").val();
-
-
-					if( v == ''){
-		                $('#uEmpty').show();
-		                setTimeout(function () {
-		                    $('#uEmpty').hide();
-		                }, 2000);
-					}
-					else{
-						if(!reg.test(v)){
-			                $('#uType').show();
-			                setTimeout(function () {
-			                    $('#uType').hide();
-			                }, 2000);
-						}
-					}
-					var pNum =/(1[3-9]\d{9}$)/;
-					var uPNum = $(".uphone").val();
-
-					if(uPNum == ''){
-		                $('#tEmpty').show();
-		                setTimeout(function () {
-		                    $('#tEmpty').hide();
-		                }, 2000);
-					}else{
-						if(!pNum.test(uPNum)){
-			                $('#tType').show();
-			                setTimeout(function () {
-			                    $('#tType').hide();
-			                }, 2000);
-						}
-					};					
-
+			     unameTest();
+                 unumTest();
     		});
 
     //search area
@@ -263,7 +340,7 @@ $(function () {
 	$('.container').on('click','.zh-address .weui_panel_access',function(){
 		$('.zh-address .weui_panel_access').removeClass('address-current');
 		$(this).addClass('address-current');
-	});      
+	});   
 
 
     router.push(home)
@@ -272,16 +349,16 @@ $(function () {
     	  .push(cAddr)
     	  .push(uAddr)
     	  .push(nAddr)
-			.push(mInfo)
-			.push(mCoupon)
-			.push(gPhotoa)
-			.push(oDetail)
-			.push(yDetail)
-			.push(mOrder)
-			.push(mMsg)
-			.push(oPro)
-			.push(yPrice)
-			.push(pEg)    	  
+		  .push(mInfo)
+		  .push(mCoupon)
+		  .push(gPhotoa)
+		  .push(oDetail)
+		  .push(yDetail)
+		  .push(mOrder)
+		  .push(mMsg)
+		  .push(oPro)
+		  .push(yPrice)
+		  .push(pEg)    	  
           .setDefault('/')
           .init();
 
@@ -300,6 +377,55 @@ $(function () {
                 }, 0);
             }
         });
-    //}       
+    //}  
 
 });
+
+
+
+function addTr(tab, row, trHtml){
+     //获取table最后一行 $("#tab tr:last")
+     //获取table第一行 $("#tab tr").eq(0)
+     //获取table倒数第二行 $("#tab tr").eq(-2)
+     var $tr=$("#"+tab+" tr").eq(row);
+     if($tr.size()==0){
+        alert("指定的table id或行数不存在！");
+        return;
+     }
+     $tr.after(trHtml);
+  }
+   
+   
+  function addTr2(tab, row){
+    var trHtml="<tr><td>黄芪</td><td>0.30元</td><td><input type='text' class='zh-form-control'> g</td><td><a href='javascript:;' class='weui_btn weui_btn_mini weui_btn_default weui_icon_clear' onclick='delTr2(this)'></a></td></tr>";
+    addTr(tab, row, trHtml);
+  }
+   
+  function delTr2(k){
+     var tabDelBtn = $(k).parent().parent();
+
+    $.weui.confirm('确认删除?', function (){
+        //console.log('确认删除');
+        tabDelBtn.remove();
+    }, function (){
+        //console.log('不删除');
+    });
+
+  };
+  
+
+
+    function delAll(){
+     var tabDelBtn = $("#zy-list-table tbody");
+
+
+    $.weui.confirm('确定要清空列表?', function (){
+        //console.log('确认删除');
+        tabDelBtn.remove();
+        
+    }, function (){
+        //console.log('不删除');
+    });
+
+
+  };
