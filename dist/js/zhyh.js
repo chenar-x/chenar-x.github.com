@@ -3,7 +3,8 @@ $(function () {
         container: '#container',
         enterTimeout: 250,
         leaveTimeout: 250
-    });	
+    }); 
+
 
     // grid
     var home = {
@@ -148,51 +149,51 @@ $(function () {
     };
 
 
-    		//自助录方-判断
-		  var max = 200;
-		  var listMax = 41;
-		  $('#container').on('input', '#zh_comment_textarea',function(){
-		     var text = $(this).val();
-		     var len = text.length;
-		    
-		     $('#zh_comment_count').text(len);
-		    
-		     if(len > max){
-		       $(this).closest('.weui_cell').addClass('weui_cell_warn');
-		     }
-		     else{
-		       $(this).closest('.weui_cell').removeClass('weui_cell_warn');
-		     }
-		     
-		  });
+            //自助录方-判断
+          var max = 200;
+          var listMax = 41;
+          $('#container').on('input', '#zh_comment_textarea',function(){
+             var text = $(this).val();
+             var len = text.length;
+            
+             $('#zh_comment_count').text(len);
+            
+             if(len > max){
+               $(this).closest('.weui_cell').addClass('weui_cell_warn');
+             }
+             else{
+               $(this).closest('.weui_cell').removeClass('weui_cell_warn');
+             }
+             
+          });
 
-		  $('#container').on('click','#default_list .weui_yc_opr',function (){
-		  	//alert(111);
-		  	var delBtn = $(this).parent();
-		    $.weui.confirm('确认删除?', function (){
-		        //console.log('确认删除');
-		        delBtn.remove();
-		        listlen--;
-		    }, function (){
-		        //console.log('不删除');
-		    });
-		  });
+          $('#container').on('touchend','#default_list .weui_yc_opr',function (){
+            //alert(111);
+            var delBtn = $(this).parent();
+            $.weui.confirm('确认删除?', function (){
+                //console.log('确认删除');
+                delBtn.remove();
+                listlen--;
+            }, function (){
+                //console.log('不删除');
+            });
+          });
 
-		  var listlen = $('.zh_yc_list').length;
+          var listlen = $('.zh_yc_list').length;
 
 
-		  
+          
 
-			$('#container').on('click', '.addBtn', function (e) {
-			     	 $('.addBtn').show();
-					  $("#default_list").append($('<div class="weui_cells weui_cells_form zh_yc_list m0"><a href="javascript:;" class="weui_yc_opr"><i class="weui_icon_cancel"></i></a><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">药材</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="如：黄芪"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">单价</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" disabled placeholder="输入药材名称后显示"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">数量</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" placeholder="如：10"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">副数</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" placeholder="如：1（剂/副）"/></div></div><div class="weui_cell weui_cell_select weui_select_after"><div class="weui_cell_hd">用法</div><div class="weui_cell_bd weui_cell_primary"><select class="weui_select"><option value="1">常规</option><option value="2">冲泡</option><option value="3">先煎</option></select></div></div></div>'));  	
-					    
-					    listlen++;
+            $('#container').on('touchend', '.addBtn', function (e) {
+                     $('.addBtn').show();
+                      $("#default_list").append($('<div class="weui_cells weui_cells_form zh_yc_list m0"><a href="javascript:;" class="weui_yc_opr"><i class="weui_icon_cancel"></i></a><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">药材</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="如：黄芪"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">单价</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" disabled placeholder="输入药材名称后显示"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">数量</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" placeholder="如：10"/></div></div><div class="weui_cell"><div class="weui_cell_hd"><label class="weui_label_dd mr15">副数</label></div><div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" placeholder="如：1（剂/副）"/></div></div><div class="weui_cell weui_cell_select weui_select_after"><div class="weui_cell_hd">用法</div><div class="weui_cell_bd weui_cell_primary"><select class="weui_select"><option value="1">常规</option><option value="2">冲泡</option><option value="3">先煎</option></select></div></div></div>'));      
+                        
+                        listlen++;
 
-					    if(listlen > listMax){
-					       $('.addBtn').hide();
-					    }
-			});	
+                        if(listlen > listMax){
+                           $('.addBtn').hide();
+                        }
+            }); 
 
 
             function unameTest(){
@@ -301,12 +302,13 @@ $(function () {
                 uAge();
                 zyImg();
             });
-	      
+          
 
-		  	$('#container').on('click', '#submitBtn', function () {
-			     unameTest();
+            $('#container').on('click', '#submitBtn', function () {
+                 unameTest();
                  unumTest();
-    		});
+            });
+                  
 
     //search area
     $('#container').on('focus', '#search_input', function () {
@@ -320,10 +322,22 @@ $(function () {
         } else {
             $('#search_text').show();
         }
+    }).on('touchend','#search_show .weui_cell p',function(){
+        var clickTxt = $(this).text();
+        $('#search_input').val(clickTxt);
     }).on('input', '#search_input', function () {
         var $searchShow = $("#search_show");
-        if ($(this).val()) {
+        var inputTxt = $(this).val();
+        if (inputTxt) {
             $searchShow.show();
+            $('#search_show .weui_cell').hide();
+            $('#search_show .weui_cell').each(function(){
+                    var showTxt = $(this).text();
+                    $(this).hide();
+                    if(showTxt.indexOf(inputTxt)>=0){
+                       $(this).show();
+                    }
+            });
         } else {
             $searchShow.hide();
         }
@@ -332,33 +346,53 @@ $(function () {
         $('#search_input').val('');
     }).on('touchend', '#search_clear', function () {
         $("#search_show").hide();
+                alert(111);
         $('#search_input').val('');
+    }).on('touchend','#listAddBtn',function(){
+        $('#zy-list-table > tbody:last-child').append("<tr><td>黄芪</td><td>0.30元</td><td><input type='text' class='zh-form-control'> g</td><td><a href='javascript:;' class='weui_btn weui_btn_mini weui_btn_default weui_icon_clear'></a></td></tr>");
+    }).on('touchend','#clearAllBtn',function(){
+        $.weui.confirm('确定要清空列表?', function (){
+            $('#zy-list-table > tbody > tr').each(function(){
+                $(this).remove();
+            });
+        });
     });  
 
 
     //choose address
-	$('.container').on('click','.zh-address .weui_panel_access',function(){
-		$('.zh-address .weui_panel_access').removeClass('address-current');
-		$(this).addClass('address-current');
-	});   
+    $('.container').on('touchend','.zh-address .weui_panel_access',function(){
+        $('.zh-address .weui_panel_access').removeClass('address-current');
+        $(this).addClass('address-current');
+    }).on('touchend','#zy-list-table .weui_icon_clear',function(){          
+            div=$(this).parent().parent();
+           
+            $.weui.confirm('确认删除?', function (){
+                //console.log('确认删除');
+                
+                div.remove();
+                
+            }, function (){
+                //console.log('不删除');
+            });
+    });   
 
 
     router.push(home)
-    	  .push(zcfjg)
-    	  .push(zzlf)
-    	  .push(cAddr)
-    	  .push(uAddr)
-    	  .push(nAddr)
-		  .push(mInfo)
-		  .push(mCoupon)
-		  .push(gPhotoa)
-		  .push(oDetail)
-		  .push(yDetail)
-		  .push(mOrder)
-		  .push(mMsg)
-		  .push(oPro)
-		  .push(yPrice)
-		  .push(pEg)    	  
+          .push(zcfjg)
+          .push(zzlf)
+          .push(cAddr)
+          .push(uAddr)
+          .push(nAddr)
+          .push(mInfo)
+          .push(mCoupon)
+          .push(gPhotoa)
+          .push(oDetail)
+          .push(yDetail)
+          .push(mOrder)
+          .push(mMsg)
+          .push(oPro)
+          .push(yPrice)
+          .push(pEg)          
           .setDefault('/')
           .init();
 
@@ -381,51 +415,3 @@ $(function () {
 
 });
 
-
-
-function addTr(tab, row, trHtml){
-     //获取table最后一行 $("#tab tr:last")
-     //获取table第一行 $("#tab tr").eq(0)
-     //获取table倒数第二行 $("#tab tr").eq(-2)
-     var $tr=$("#"+tab+" tr").eq(row);
-     if($tr.size()==0){
-        alert("指定的table id或行数不存在！");
-        return;
-     }
-     $tr.after(trHtml);
-  }
-   
-   
-  function addTr2(tab, row){
-    var trHtml="<tr><td>黄芪</td><td>0.30元</td><td><input type='text' class='zh-form-control'> g</td><td><a href='javascript:;' class='weui_btn weui_btn_mini weui_btn_default weui_icon_clear' onclick='delTr2(this)'></a></td></tr>";
-    addTr(tab, row, trHtml);
-  }
-   
-  function delTr2(k){
-     var tabDelBtn = $(k).parent().parent();
-
-    $.weui.confirm('确认删除?', function (){
-        //console.log('确认删除');
-        tabDelBtn.remove();
-    }, function (){
-        //console.log('不删除');
-    });
-
-  };
-  
-
-
-    function delAll(){
-     var tabDelBtn = $("#zy-list-table tbody");
-
-
-    $.weui.confirm('确定要清空列表?', function (){
-        //console.log('确认删除');
-        tabDelBtn.remove();
-        
-    }, function (){
-        //console.log('不删除');
-    });
-
-
-  };
