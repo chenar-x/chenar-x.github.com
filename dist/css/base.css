@@ -55,9 +55,9 @@
 
 .zh-response-image{width: 100%;}
 
-.search-page{background: #3E7DE2 !important; height: 100%;}
+/*.search-page{background: #3E7DE2 !important; height: 100%;}
 
-.search-page-container{position: absolute; top: 50%; margin-top: -180px;}
+.search-page-container{position: absolute; top: 50%; margin-top: -180px;}*/
 
 .search-area{text-align: center; overflow: hidden; padding: 10px; }
 
@@ -116,3 +116,6 @@
 
 .weui_yc_opr{position: absolute; right: 5px; top: 10px; cursor: pointer; z-index: 1;}
 .zh_yc_list .weui_cell:before{border-top: 0;}
+
+
+
