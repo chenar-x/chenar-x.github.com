@@ -346,7 +346,6 @@ $(function () {
         $('#search_input').val('');
     }).on('touchend', '#search_clear', function () {
         $("#search_show").hide();
-                alert(111);
         $('#search_input').val('');
     }).on('touchend','#listAddBtn',function(){
         $('#zy-list-table > tbody:last-child').append("<tr><td>黄芪</td><td>0.30元</td><td><input type='text' class='zh-form-control'> g</td><td><a href='javascript:;' class='weui_btn weui_btn_mini weui_btn_default weui_icon_clear'></a></td></tr>");
