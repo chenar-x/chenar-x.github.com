@@ -1143,21 +1143,52 @@
 </script>
 
 <script type="text/javascript" id="zhyh_yPrice">
-    <div class="bd">
-    <div class="search-page">
-        <div class="search-page-container">
+    <div class="hd">
             <p class="text-center"><img src="images/u15.png" height="129"></p>
             <h1 class="text-center">未来中药房</h1>
             <p class="text-center">严标准煎好药  用良心做服务</p>
-            <div class="search-area">
-                <div class="input-group"> 
-                    <input type="text" class="zh-form-control" placeholder="请输入草药名或拼音、拼音首字母"> 
-                    <span class="input-group-btn"> <button class="weui_btn weui_btn_warn" type="button">查询药材价格</button> </span>
+    </div>
+    <div class="bd">
+
+        <div class="weui_search_bar" id="search_bar">
+            <form class="weui_search_outer">
+                <div class="weui_search_inner">
+                    <i class="weui_icon_search"></i>
+                    <input type="search" class="weui_search_input" id="search_input" placeholder="请输入草药名或拼音、拼音首字母" required="">
+                    <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+                </div>
+                <label for="search_input" class="weui_search_text" id="search_text">
+                    <i class="weui_icon_search"></i>
+                    <span>请输入草药名或拼音、拼音首字母</span>
+                </label>
+            </form>
+            <a href="javascript:" class="weui_search_cancel" id="search_go">查询药材价格</a>
+        </div>
+        <div class="weui_cells weui_cells_access search_show" id="search_show" style="display: none;">
+            <div class="weui_cell" style="display: none;">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>黄芪黄芪黄芪黄芪黄芪黄芪</p>
                 </div>
             </div>
-        </div> 
+            <div class="weui_cell" style="display: none;">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本1111</p>
+                </div>
+            </div>
+            <div class="weui_cell" style="display: none;">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>黄芪</p>
+                </div>
+            </div>
+            <div class="weui_cell" style="display: none;">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>其它</p>
+                </div>
+            </div>
         </div>
+
     </div>
+
 </script>
 
 <script type="text/javascript" id="zhyh_pEg">
